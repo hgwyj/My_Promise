@@ -51,7 +51,10 @@ class MyPromise<R> implements Thenable<R> {
         }
     }
     private mockResolve(value: any) {
-        if (this === value) { this.mockReject(resolveSelfError); return; };
+        if (this === value) {
+            this.mockReject(resolveSelfError);
+            return;
+        };
         if (!isObjectORFunction(value)) {
             this.fulfill(value);
             return;
